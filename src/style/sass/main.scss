@@ -34,8 +34,12 @@ h3 {
     height: 100%;
     min-width: 1200px;
     .body {
-        font-size: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
         width: 1200px;
+        font-size: 0;
+        transform: translate(-50%, -50%);
         .left-area, .right-area {
             display: inline-block;
             float: left;
@@ -133,11 +137,6 @@ h3 {
     }
     .container {
         .body {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: 450px;
-            transform: translate(-50%, -50%);
             padding-top: 60px;
             color: $mainTextColor;
             h3 {
@@ -177,8 +176,6 @@ h3 {
     background-color: $bodyBackgroundColor;
     .container {
         .body {
-            padding-top: 100px;
-            margin: 0 auto;
             color: $bodyTextColor;
             .demo-container {
                 margin-top: 51px;
@@ -207,8 +204,6 @@ h3 {
     background-color: $bodyBackgroundColor;
     .container {
         .body {
-            padding-top: 50px;
-            margin: 0 auto;
             color: $bodyTextColor;
         }
     }
@@ -288,8 +283,6 @@ h3 {
     background-color: $bodyBackgroundColor;
     .container {
         .body {
-            padding-top: 50px;
-            margin: 0 auto;
             color: $bodyTextColor;
         }
     }
@@ -393,8 +386,6 @@ h3 {
     background: rgba(0,0,0,0.80);
     .container {
         .body {
-            padding-top: 160px;
-            margin: 0 auto;
             color: $mainTextColor;
             h2 {
                 position: relative;

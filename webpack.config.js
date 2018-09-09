@@ -3,6 +3,7 @@ var SpritesmithPlugin = require('webpack-spritesmith')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var webpack = require('webpack')
 var HtmlPlugin = require('html-webpack-plugin');
+var Uglify = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -22,6 +23,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
+      },
+      {
+        test: /.html$/,
+        loader: 'html-loader'
       },
       {
         test: /\.(css|scss|sass)$/,
@@ -84,11 +89,7 @@ module.exports = {
         algorithm: 'top-down'
       }
     }),
-    // new HtmlPlugin({
-    //   title: 'Gy-Cli',
-	  //   filename: resolve('/public/test.html'),
-    //   favicon: resolve('/src/assets/images/favicon.ico')
-	  // }),
+    new Uglify(),
   ],
   devServer: {
     contentBase: './public',

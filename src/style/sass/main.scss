@@ -1,0 +1,419 @@
+@import './variable.scss';
+@import './reset.scss';
+
+html, body {
+    font-family: SourceHanSerifSC-SemiBold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+h3 {
+    font-size: 36px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 1200px;
+    .body {
+        font-size: 0;
+        width: 1200px;
+        .left-area, .right-area {
+            display: inline-block;
+            float: left;
+        }
+    }
+}
+
+.card-grid {
+    overflow: hidden;
+    .card {
+        display: inline-block;
+        width: 33.3%;
+        background-color: $cardBackgroundColor;
+    }
+}
+
+.border-title {
+    border-left: 6px solid #646466;
+    padding-left: 38px;
+}
+
+.first-screen {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .opacity {
+        background: #000;
+        opacity: .4;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -960px;
+        width: 1920px;
+        height: 100%;
+        opacity: .8;
+        filter: brightness(40%);
+        background: url(../../assets//images/background.jpeg) center center no-repeat;
+    }
+    .header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 60px;
+        width: 1200px;
+        margin: 0 auto;
+        z-index: 999;
+        .tag {
+            position: relative;
+            width: 60px;
+            height: 40px;
+            background: $mainTextColor;
+            font-size: 18px;
+            color: $cardTextColor;
+            text-align: center;
+            line-height: 40px;
+        }
+        .tag-triangle {
+            position: absolute;
+            bottom: -15px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        .tag::before {
+            content: '';
+            @extend .tag-triangle;
+            border-width: 15px 30px 0 0;
+            border-color: #ffffff transparent transparent transparent;
+            left: 0;
+        }
+        .tag::after {
+            @extend .tag-triangle;
+            content: '';
+            border-width: 0 30px 15px 0;
+            border-color: transparent #ffffff transparent transparent;
+            right: 0;
+        }
+        .menu {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0px;
+            font-size: 14px;
+            color: $mainTextColor;
+            ul {
+                li {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .container {
+        .body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 450px;
+            transform: translate(-50%, -50%);
+            padding-top: 60px;
+            color: $mainTextColor;
+            h3 {
+                color: $secondTextColor;
+            }
+            h1 {
+                margin-top: 25px;
+            }
+            p {
+                width: 500px;
+                font-size: 24px;
+                margin-top: 70px;
+                color: $secondTextColor;
+            }
+            .try-container {
+                margin-top: 140px;
+                overflow: hidden;
+                h2 {
+                    float: left;
+                    transform: translateY(7%);
+                }
+                span {
+                    float: left;
+                    width: 54px;
+                    height: 54px;
+                    margin-left: 30px;
+                    background: url(../../assets/images/icons/right.svg);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
+
+.second-screen {
+    background-color: $bodyBackgroundColor;
+    .container {
+        .body {
+            padding-top: 100px;
+            margin: 0 auto;
+            color: $bodyTextColor;
+            .demo-container {
+                margin-top: 51px;
+                width: 400px;
+                height: 466px;
+                padding: 60px 45px;
+                background-color: $cardBackgroundColor;
+            }
+            .qr-code {
+                width: 160px;
+                height: 160px;
+                margin: 0 auto;
+                margin-top: 32px;
+                background: url(../../assets/images/qr-code.png) center center no-repeat;
+            }
+            .bitmap {
+                width: 800px;
+                height: 566px;
+                background: url(../../assets/images/bitmap.png) center center no-repeat;
+            }
+        }
+    }
+}
+
+.third-screen {
+    background-color: $bodyBackgroundColor;
+    .container {
+        .body {
+            padding-top: 50px;
+            margin: 0 auto;
+            color: $bodyTextColor;
+        }
+    }
+    .card-grid {
+        font-size: 0;
+        .card {
+            float: left;
+            height: 350px;
+            padding-top: 50px;
+            color: $cardTextColor;
+            border-right: 4px solid #FAFAFC;
+            border-bottom: 4px solid #FAFAFC;
+            .logo {
+                width: 172px;
+                height: 172px;
+                margin: 0 auto;
+            }
+            .title {
+                text-align: center;
+                font-size: 18px;
+            }
+            .text {
+                width: 210px;
+                margin: 25px auto;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+        }
+        .card:first-child {
+            border: 0;
+        }
+        .card:nth-child(3n) {
+            border-right: 0;
+        }
+        .card:nth-child(4),.card:nth-child(5),.card:nth-child(6) {
+            border-bottom: 0;
+        }
+        .card.title {
+            padding-top: 60px;
+            padding-left: 25px;
+            background-color: $bodyBackgroundColor;
+        }
+        .buy-btn {
+            width: 260px;
+            height: 60px;
+            margin-top: 87px;
+            color: $mainTextColor;
+            background-color: #646466;
+            text-align: center;
+            font-size: 18px;
+            line-height: 60px;
+        }
+    }
+}
+
+.love-logo {
+    background: url(../../assets/images/rectangle_21.png) center center no-repeat;
+}
+
+.layout-logo {
+    background: url(../../assets/images/rectangle_22.png) center center no-repeat;
+}
+
+.poster-logo {
+    background: url(../../assets/images/rectangle_23.png) center center no-repeat;
+}
+
+.adv-logo {
+    background: url(../../assets/images/rectangle_24.png) center center no-repeat;
+}
+
+.photo-logo {
+    background: url(../../assets/images/rectangle_25.png) center center no-repeat;
+}
+
+.forth-screen {
+    background-color: $bodyBackgroundColor;
+    .container {
+        .body {
+            padding-top: 50px;
+            margin: 0 auto;
+            color: $bodyTextColor;
+        }
+    }
+    .card-grid {
+        font-size: 0;
+        .card {
+            position: relative;
+            background-color: $bodyBackgroundColor;
+            height: 282px;
+            float: left;
+            border-left: 2px solid #ddd;
+            border-bottom: 2px solid #ddd;
+            .logo {
+                width: 240px;
+                height: 80px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .card:nth-child(3n) {
+            border-right: 2px solid #ddd;
+        }
+        .card:nth-child(1),.card:nth-child(3) {
+            border-top: 2px solid #ddd;
+        }
+        .card.special {
+            h2 {
+                margin-top: 28px;
+                text-align: center;
+            }
+            .cooperaters {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                display: inline-block;
+                margin: 0 auto;
+                margin-top: 35px;
+                font-size: 0;
+                span {                    
+                    display: inline-block;
+                    width: 90px;
+                    height: 60px;
+                    text-align: center;
+                    line-height: 60px;
+                    font-size: 14px;
+                    color: $mainTextColor;
+                }
+                span.preview {
+                    background: #bbbbbb;
+                }
+                span.next {
+                    background: #646464;
+                }
+            }
+        }
+        .card.special::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 6px;
+            background: #646466;
+        }
+    }
+    .go-try-btn {
+        width: 340px;
+        height: 80px;
+        line-height: 80px;
+        background: #646466;
+        margin: 55px auto;
+        margin-bottom: 0;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        color: $mainTextColor;
+        box-shadow: 0 10px 30px 0 rgba(136,136,136,0.40);
+    }
+}
+
+.logo1 {
+    background: url(../../assets/images/adv1.png) center center no-repeat;
+}
+.logo2 {
+    background: url(../../assets/images/adv2.png) center center no-repeat;
+}
+.logo3 {
+    background: url(../../assets/images/adv3.png) center center no-repeat;
+}
+.logo4 {
+    background: url(../../assets/images/adv4.png) center center no-repeat;
+}
+.logo5 {
+    background: url(../../assets/images/adv5.png) center center no-repeat;
+}
+
+.fifth-screen {
+    background: rgba(0,0,0,0.80);
+    .container {
+        .body {
+            padding-top: 160px;
+            margin: 0 auto;
+            color: $mainTextColor;
+            h2 {
+                position: relative;
+                text-align: center;
+            }
+            h2::after {
+                content: '';
+                position: absolute;
+                width: 48px;
+                height: 6px;
+                background: $mainTextColor;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            h1 {
+                margin-top: 100px;
+                text-align: center;
+            }
+        }
+    }
+}
